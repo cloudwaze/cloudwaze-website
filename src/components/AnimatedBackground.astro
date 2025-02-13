@@ -1,0 +1,64 @@
+---
+interface Props {
+  type: 'analytics' | 'security' | 'migration' | 'xaas';
+}
+
+const { type } = Astro.props;
+---
+
+<div class={`animated-background ${type}`}>
+  <div class="particles">
+    {Array.from({ length: 50 }).map((_, i) => (
+      <div class="particle" style={`--delay: ${i * 0.2}s; --size: ${Math.random() * 10 + 5}px`}></div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .animated-background {
+    @apply absolute inset-0 overflow-hidden;
+  }
+
+  .particles {
+    @apply absolute inset-0;
+  }
+
+  .particle {
+    @apply absolute rounded-full;
+    width: var(--size);
+    height: var(--size);
+    animation: float 20s infinite;
+    animation-delay: var(--delay);
+  }
+
+  .analytics .particle {
+    @apply bg-blue-500/10;
+  }
+
+  .security .particle {
+    @apply bg-red-500/10;
+  }
+
+  .migration .particle {
+    @apply bg-green-500/10;
+  }
+
+  .xaas .particle {
+    @apply bg-purple-500/10;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(100px, 100px);
+    }
+    50% {
+      transform: translate(200px, 0);
+    }
+    75% {
+      transform: translate(100px, -100px);
+    }
+  }
+</style> 

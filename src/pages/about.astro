@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const microsoftExpertise = [
+  "Azure Services",
+  "Office 365 Cloud Services",
+  "Office 2013",
+  "All SharePoint Platforms – SharePoint 2013, SharePoint Online, SharePoint Server Farm Architecture Assessment",
+  "SharePoint Implementation, Customization, Hosting, Migration, Training",
+  "Custom Software Development (including SharePoint Business Intelligence, KPI/API Dashboards)",
+  "All Email Services – Exchange 2013, Hosted Exchange, Exchange Online, Outlook 2013, Domain Migration",
+  "Skype for Business / Lync videoconferencing, Skype for Business / Lync Online",
+  "Security Testing",
+  "Active Directory Federation Services (ADFS)",
+  "Active Directory Migration Assessment",
+  "Volume Licensing for all Microsoft Licenses"
+];
+
+const azureBenefits = [
+  {
+    title: "Efficient Scaling",
+    description: "Scale your resources up or down based on demand"
+  },
+  {
+    title: "Reliable Operations",
+    description: "Ensure business continuity with robust cloud infrastructure"
+  },
+  {
+    title: "Minimized Maintenance",
+    description: "Reduce IT overhead with managed services"
+  },
+  {
+    title: "Lasting Value",
+    description: "Get the most out of your cloud investment"
+  }
+];
+
+const analyticsCapabilities = [
+  "Analytics",
+  "Data Mining",
+  "Predictive models",
+  "Dashboards",
+  "Reporting"
+];
+---
+
+<BaseLayout
+  title="About Us"
+  description="CloudWaze specializes in niche Cloud and Big Data Consulting, with leading Microsoft Cloud Consulting Practices"
+>
+  <div class="pt-20">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center mb-12">
+          <img 
+            src="https://cloudwaze.com/wp-content/uploads/2021/09/Cloudwaze-Logo-1-2048x683.png"
+            alt="CloudWaze Logo"
+            class="h-24 md:h-32 w-auto"
+          />
+        </div>
+        <div class="max-w-3xl">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Our Cloud Experts
+          </h1>
+          <p class="text-xl text-blue-100">
+            At CloudWaze, we specialize in niche Cloud and Big Data Consulting, with leading Microsoft Cloud Consulting Practices.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Microsoft Azure Section -->
+    <div class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Why Microsoft Azure?</h2>
+          <p class="text-gray-600">
+            CloudWaze has been awarded achievements of the highest level within both Cloud Competencies so that we can effectively assess between and definitively choose the best Cloud solution to meet your business needs.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {azureBenefits.map(benefit => (
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+              <h3 class="text-xl font-semibold mb-3 text-blue-900">{benefit.title}</h3>
+              <p class="text-gray-600">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Microsoft Cloud Expertise -->
+    <div class="bg-gray-50 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-8">CloudWaze and Microsoft Cloud:</h2>
+        <div class="prose prose-lg max-w-none">
+          <p class="mb-8">
+            CloudWaze specializes in Microsoft Azure and the full range of Microsoft Office 365 Cloud services; Office 365 consulting, deployment, migration and support. We are Microsoft Cloud Champions. Our Office 365 Cloud expertise and deep industry experience within large enterprise and mid size business clients, enable us to help your company leverage the right technology to become more productive and compete at the highest level.
+          </p>
+          
+          <h3 class="text-xl font-semibold mb-4">
+            Our highly trained, Microsoft Certified experts have over twenty years of experience meeting our valued clients' challenges in a variety of Microsoft technologies including:
+          </h3>
+          
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {microsoftExpertise.map(item => (
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                </svg>
+                <span class="text-gray-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Big Data Analytics Section -->
+    <div class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-8">CloudWaze and Big Data/Advanced Analytics:</h2>
+        <div class="prose prose-lg max-w-none">
+          <p class="mb-8">
+            At CloudWaze, we are committed to being your comprehensive Cloud Service Provider. That means we move far beyond just implementing your platforms, services and apps in the Cloud.
+          </p>
+          
+          <p class="mb-8">
+            We help you capture the data available, harness and compute it, and leverage the right tools to analyze, synthesize and visualize it:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {analyticsCapabilities.map(capability => (
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                <span class="text-lg text-gray-800">{capability}</span>
+              </div>
+            ))}
+          </div>
+
+          <p class="mb-8">
+            You get information you need to help you better understand your customer, your products, and your competitors, and add true value to your business.
+          </p>
+
+          <p>
+            We integrate external data into robust tools, bringing these solutions to you in both Digital and Mobile form. You and your employees can aggressively manage and react to changing business conditions at the touch of a fingertip.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications Section -->
+    <div class="bg-gray-50 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-16">Our Certifications</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <img src="/images/certifications/microsoft-gold.png" alt="Microsoft Gold Partner" class="h-24 w-auto mx-auto"/>
+          <img src="/images/certifications/azure-expert.png" alt="Azure Expert" class="h-24 w-auto mx-auto"/>
+          <img src="/images/certifications/office365.png" alt="Office 365" class="h-24 w-auto mx-auto"/>
+          <img src="/images/certifications/sharepoint.png" alt="SharePoint" class="h-24 w-auto mx-auto"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout> 

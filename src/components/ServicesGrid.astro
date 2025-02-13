@@ -1,0 +1,104 @@
+---
+const services = [
+  {
+    title: "Cloud Consulting",
+    description: "End-to-end cloud strategy and implementation services including assessment, planning, and execution of cloud initiatives.",
+    features: [
+      "Cloud Readiness Assessment",
+      "Migration Strategy & Planning",
+      "Cloud Architecture Design",
+      "Cost Optimization",
+      "Performance Tuning"
+    ],
+    icon: "consulting",
+    link: "/services/consulting"
+  },
+  {
+    title: "Cloud Analytics",
+    description: "Transform your data into actionable insights with our comprehensive analytics solutions.",
+    features: [
+      "Data Warehouse Solutions",
+      "Business Intelligence",
+      "Predictive Analytics",
+      "Real-time Analytics",
+      "Data Lake Implementation"
+    ],
+    icon: "analytics",
+    link: "/services/analytics"
+  },
+  {
+    title: "Cloud XaaS",
+    description: "Comprehensive cloud service models tailored to your specific needs and objectives.",
+    features: [
+      "IaaS Implementation",
+      "PaaS Solutions",
+      "SaaS Integration",
+      "Multi-cloud Management",
+      "Service Optimization"
+    ],
+    icon: "xaas",
+    link: "/services/xaas"
+  },
+  {
+    title: "Cloud Security",
+    description: "Protect your cloud infrastructure with our comprehensive security solutions.",
+    features: [
+      "Security Assessment",
+      "Compliance Management",
+      "Identity & Access Management",
+      "Threat Detection",
+      "Data Protection"
+    ],
+    icon: "security",
+    link: "/services/security"
+  }
+];
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Comprehensive cloud solutions to help your organization innovate, scale, and succeed in the digital era
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map(service => (
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="p-6">
+            <div class="w-16 h-16 bg-blue-100 rounded-lg p-3 mb-6">
+              <img 
+                src={`/images/icons/${service.icon}.svg`}
+                alt={service.title}
+                class="w-full h-full text-blue-600"
+              />
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">{service.title}</h3>
+            <p class="text-gray-600 mb-6">{service.description}</p>
+            <ul class="space-y-2 mb-6">
+              {service.features.map(feature => (
+                <li class="flex items-center text-gray-600">
+                  <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <a 
+              href={service.link}
+              class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+            >
+              Learn More
+              <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

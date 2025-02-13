@@ -1,0 +1,115 @@
+---
+const navItems = [
+  { text: 'Home', href: '/' },
+  { 
+    text: 'Services', 
+    href: '/services',
+    submenu: [
+      { text: 'Cloud Migration', href: '/services/migration' },
+      { text: 'Cloud XaaS', href: '/services/xaas' },
+      { text: 'Cloud Security', href: '/services/security' },
+      { text: 'Cloud Analytics', href: '/services/analytics' }
+    ]
+  },
+  { text: 'Careers', href: '/careers' },
+  { text: 'Contact', href: '/contact' },
+  { text: 'About', href: '/about' }
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed w-full bg-white shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img 
+            src="https://cloudwaze.com/wp-content/uploads/2021/09/Cloudwaze-Logo-1-2048x683.png"
+            alt="CloudWaze" 
+            class="h-10 md:h-12 w-auto object-contain"
+            style="max-width: 200px;"
+          />
+        </a>
+      </div>
+      
+      <nav class="hidden md:flex space-x-8">
+        {navItems.map(item => (
+          <div class="relative group">
+            <a 
+              href={item.href}
+              class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${
+                currentPath === item.href ? 'text-blue-600' : ''
+              }`}
+            >
+              {item.text}
+            </a>
+            {item.submenu && (
+              <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="py-1">
+                  {item.submenu.map(subItem => (
+                    <a
+                      href={subItem.href}
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      {subItem.text}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </nav>
+
+      <button 
+        class="md:hidden p-2"
+        aria-label="Toggle menu"
+        id="menuButton"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="hidden md:hidden" id="mobileMenu">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      {navItems.map(item => (
+        <>
+          <a
+            href={item.href}
+            class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${
+              currentPath === item.href ? 'text-blue-600 bg-gray-50' : ''
+            }`}
+          >
+            {item.text}
+          </a>
+          {item.submenu && (
+            <div class="pl-4">
+              {item.submenu.map(subItem => (
+                <a
+                  href={subItem.href}
+                  class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+                >
+                  {subItem.text}
+                </a>
+              ))}
+            </div>
+          )}
+        </>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script> 

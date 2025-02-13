@@ -1,0 +1,43 @@
+---
+const expertiseSteps = [
+  {
+    title: "Define",
+    icon: "define-black.png",
+    description: "We bring in our elite expertise to identify and understand your current business challenges. This investigative stage is among our specialties as our cloud architects come with decades of industry experience."
+  },
+  {
+    title: "Design",
+    icon: "design-black.png",
+    description: "We explore where you are today and use it as a starting point to design a solution to the point of view. Consider all constraints, architecture principles, and future state ambitions to ensure that the solution is in line with the organization's strategic goals."
+  },
+  {
+    title: "Deliver",
+    icon: "delivery-black.png",
+    description: "We execute the plan formulated in the design phase with the Migration Factory approach explained above, which is among the top-rated Oracle best practices."
+  },
+  {
+    title: "Manage",
+    icon: "manage-black.png",
+    description: "We help you govern, change management, and automate your cloud resources so that the new environment delivers optimum security, performance, availability, and cost."
+  }
+];
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-12">Our Expertise</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {expertiseSteps.map(step => (
+        <div class="text-center">
+          <img 
+            src={`/images/icons/${step.icon}`} 
+            alt={step.title}
+            class="w-24 h-24 mx-auto mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-3">{step.title}</h3>
+          <p class="text-gray-600">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

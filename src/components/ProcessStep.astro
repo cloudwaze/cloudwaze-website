@@ -1,0 +1,48 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const { number, title, description } = Astro.props;
+---
+
+<div class="process-step" data-aos="fade-up" data-aos-delay={number}>
+  <div class="relative">
+    <div class="step-number">
+      {number}
+    </div>
+    <div class="content">
+      <h4 class="step-title">{title}</h4>
+      <p class="step-description">{description}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .process-step {
+    @apply relative pb-12;
+  }
+
+  .process-step:not(:last-child)::after {
+    content: '';
+    @apply absolute left-6 top-20 bottom-0 w-px bg-gradient-to-b from-blue-500 to-transparent;
+  }
+
+  .step-number {
+    @apply w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold mb-4 shadow-lg;
+  }
+
+  .step-title {
+    @apply text-xl font-semibold text-blue-900 mb-2;
+  }
+
+  .step-description {
+    @apply text-gray-600;
+  }
+
+  .content {
+    @apply ml-4;
+  }
+</style> 

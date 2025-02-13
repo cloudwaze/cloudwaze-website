@@ -1,0 +1,179 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ServiceFeatureCard from '../components/ServiceFeatureCard.astro';
+import ProcessStep from '../components/ProcessStep.astro';
+import 'aos/dist/aos.css';
+
+interface Props {
+  title: string;
+  description: string;
+  heroTitle: string;
+  heroDescription: string;
+}
+
+const { title, description, heroTitle, heroDescription } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Hero Section with Animated Background -->
+  <div class="relative bg-gradient-to-r from-blue-900 to-blue-800 py-32 overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-blue-900/90"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-900/20"></div>
+      <!-- Animated Grid Pattern -->
+      <div class="absolute inset-0 animate-grid-flow" style="background-image: linear-gradient(#ffffff0d 1px, transparent 1px), linear-gradient(to right, #ffffff0d 1px, transparent 1px); background-size: 24px 24px;"></div>
+      <!-- Floating Elements -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="floating-elements">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div class="floating-element" style={`--delay: ${i * 0.5}s; --duration: ${10 + i * 0.5}s;`}></div>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-3xl" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+          {heroTitle}
+        </h1>
+        <p class="text-xl text-blue-100">
+          {heroDescription}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <slot />
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section with Parallax -->
+  <div class="bg-gray-50 border-t border-gray-100 relative overflow-hidden">
+    <div class="absolute inset-0 parallax-bg"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-[1.02] transition-transform duration-300">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">
+            Ready to Transform Your Business?
+          </h2>
+          <p class="text-xl text-blue-100 mb-8">
+            Contact our experts today to discuss your cloud needs and discover how we can help accelerate your digital transformation.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="/contact" 
+              class="inline-block bg-white text-blue-900 px-8 py-4 rounded-lg font-medium hover:bg-blue-50 transition-all transform hover:scale-105"
+            >
+              Contact Us
+            </a>
+            <a 
+              href="/case-studies" 
+              class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white/10 transition-all transform hover:scale-105"
+            >
+              View Case Studies
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Animated Grid Background */
+  @keyframes gridFlow {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(24px); }
+  }
+
+  .animate-grid-flow {
+    animation: gridFlow 20s linear infinite;
+  }
+
+  /* Floating Elements */
+  .floating-elements {
+    @apply absolute inset-0;
+  }
+
+  .floating-element {
+    @apply absolute w-4 h-4 rounded-full bg-white/10;
+    animation: float var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+    opacity: 0.5;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(20px, -20px);
+    }
+  }
+
+  /* Parallax Background */
+  .parallax-bg {
+    background-image: url('/images/pattern-bg.svg');
+    background-size: cover;
+    transform: translateZ(-1px) scale(2);
+    z-index: 0;
+  }
+
+  /* Enhanced Typography */
+  .prose :global(h2) {
+    @apply text-3xl font-bold text-blue-900 mb-8 relative;
+  }
+
+  .prose :global(h2)::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-20 h-1 bg-blue-600 rounded;
+    transform: translateY(1rem);
+  }
+
+  .prose :global(h3) {
+    @apply text-2xl font-semibold text-blue-800 mt-12 mb-4;
+  }
+
+  .prose :global(ul) {
+    @apply space-y-4 list-none pl-0;
+  }
+
+  .prose :global(ul li) {
+    @apply flex items-start bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all;
+  }
+
+  .prose :global(ul li::before) {
+    content: "";
+    @apply w-2 h-2 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0;
+  }
+</style>
+
+<script>
+  // Use dynamic import for client-side loading
+  const initAOS = async () => {
+    const AOS = (await import('aos')).default;
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  };
+
+  // Initialize AOS after page load
+  document.addEventListener('DOMContentLoaded', initAOS);
+
+  // Parallax Effect
+  document.addEventListener('scroll', () => {
+    const parallaxBg = document.querySelector('.parallax-bg');
+    if (parallaxBg) {
+      const scrolled = window.pageYOffset;
+      parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+  });
+</script> 

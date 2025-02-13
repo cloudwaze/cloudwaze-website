@@ -1,0 +1,294 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import Metrics from '../components/Metrics.astro';
+import Expertise from '../components/Expertise.astro';
+
+const solutions = [
+  {
+    icon: "/images/icons/consulting.svg",
+    title: "Cloud Consulting",
+    description: "End-to-end cloud strategy and implementation services including assessment, planning, and execution."
+  },
+  {
+    icon: "/images/icons/migration.svg",
+    title: "Cloud Migration",
+    description: "Seamlessly migrate your infrastructure to the cloud with our proven methodology and expertise."
+  },
+  {
+    icon: "/images/icons/xaas.svg",
+    title: "Cloud XaaS",
+    description: "Comprehensive cloud service models tailored to your specific needs and objectives."
+  },
+  {
+    icon: "/images/icons/security.svg",
+    title: "Cloud Security",
+    description: "Protect your cloud infrastructure with comprehensive security solutions."
+  }
+];
+
+const features = [
+  {
+    title: "Microsoft Azure",
+    description: "Certified Azure experts helping you leverage the full power of Microsoft's cloud platform.",
+    image: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/azure-pct5lvu3vq7c8wll985y9zzr19p0fuh8mz9nr9079s.png",
+    bgColor: "bg-white"
+  },
+  {
+    title: "AWS Solutions",
+    description: "Expert AWS consulting and implementation services for your cloud journey.",
+    image: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/AWS-pct5gqnwhd5upq2kai4g4spy0d1pbh249ir07qmrbk.png",
+    bgColor: "bg-white"
+  },
+  {
+    title: "Google Cloud",
+    description: "Maximize your potential with Google Cloud Platform's cutting-edge technologies.",
+    image: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/Google-Cloud-pct5kh2tmo9utynbhm83jcsuygn6w6vqg01fub3gls.png",
+    bgColor: "bg-white"
+  }
+];
+
+const testimonials = [
+  {
+    quote: "CloudWaze transformed our infrastructure and significantly improved our operational efficiency.",
+    author: "John Smith",
+    position: "CTO",
+    company: "Tech Innovators Inc."
+  },
+  {
+    quote: "Their expertise in cloud security gave us the confidence to accelerate our digital transformation.",
+    author: "Sarah Johnson",
+    position: "IT Director",
+    company: "Global Solutions Ltd."
+  },
+  {
+    quote: "The CloudWaze team's dedication and technical knowledge is truly exceptional.",
+    author: "Michael Chen",
+    position: "VP of Engineering",
+    company: "Future Systems"
+  }
+];
+
+const stats = [
+  { number: "500+", label: "Successful Projects" },
+  { number: "100+", label: "Enterprise Clients" },
+  { number: "50+", label: "Cloud Experts" },
+  { number: "24/7", label: "Support" }
+];
+
+const certifications = [
+  {
+    title: "Microsoft Gold Partner",
+    image: "/images/certifications/microsoft-gold.png",
+    link: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/Microsoft-Gold-Partner-pct5n9cdu2aqnuuv0b3t0h5nkqqqy7wqtxhbnyxqxc.png"
+  },
+  {
+    title: "Azure Expert",
+    image: "/images/certifications/azure-expert.png",
+    link: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/Azure-Expert-pct5mxmxl4ld8wlkxwvxaaqp4pnxfkk8qy9jqz5uxc.png"
+  },
+  {
+    title: "Office 365",
+    image: "/images/certifications/office365.png",
+    link: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/Office-365-pct5nkw3cnyy2sj4i8bop5cjrzstnviqwxpjpyp2tc.png"
+  },
+  {
+    title: "SharePoint",
+    image: "/images/certifications/sharepoint.png",
+    link: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/SharePoint-pct5o6gj4zx5hqgdz5jjdtjg5iu4d9eqzwxrnyg6pc.png"
+  }
+];
+---
+
+<BaseLayout
+  title="Cloud Solutions & Services"
+  description="CloudWaze provides expert cloud consulting, migration, and security services to help businesses thrive in the digital age."
+>
+  <!-- Hero Section -->
+  <div class="relative min-h-screen flex items-center">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/95 to-blue-800/90"></div>
+      <video 
+        class="w-full h-full object-cover"
+        autoplay 
+        loop 
+        muted 
+        playsinline
+      >
+        <source src="/videos/cloud-tech.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
+          Navigate Your Cloud Journey with Confidence
+        </h1>
+        <p class="text-xl text-blue-100 mb-8 animate-fade-in-delay">
+          Expert cloud solutions to help your organization innovate, scale, and succeed in the digital era.
+        </p>
+        <div class="flex gap-4 animate-fade-in-delay-2">
+          <a 
+            href="/contact"
+            class="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-700 transition-all transform hover:scale-105"
+          >
+            Get Started
+          </a>
+          <a 
+            href="/services"
+            class="border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white hover:text-blue-900 transition-all"
+          >
+            Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="bg-white py-12 -mt-20 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-xl">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
+          {stats.map(stat => (
+            <div class="text-center text-white">
+              <div class="text-3xl md:text-4xl font-bold mb-2">{stat.number}</div>
+              <div class="text-blue-100">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solutions Section -->
+  <div class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Our Solutions</h2>
+        <div class="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Comprehensive cloud solutions tailored to your business needs
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {solutions.map(solution => (
+          <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="w-16 h-16 bg-blue-100 rounded-lg mb-6 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+              <img 
+                src={solution.icon} 
+                alt={solution.title}
+                class="w-8 h-8 text-blue-600 group-hover:text-white transition-colors"
+              />
+            </div>
+            <h3 class="text-xl font-semibold mb-3">{solution.title}</h3>
+            <p class="text-gray-600">{solution.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="bg-gray-50 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Cloud Expertise</h2>
+        <div class="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <div class="p-8 flex items-center justify-center h-48 relative overflow-hidden">
+              <div class="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
+                <img 
+                  src={feature.image} 
+                  alt={feature.title}
+                  class="h-32 w-auto object-contain filter brightness-100"
+                />
+              </div>
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 bg-blue-600"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+        <div class="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map(testimonial => (
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="text-blue-600 mb-6">
+              <i class="fas fa-quote-left text-4xl"></i>
+            </div>
+            <p class="text-gray-600 mb-6">{testimonial.quote}</p>
+            <div>
+              <p class="font-semibold text-gray-900">{testimonial.author}</p>
+              <p class="text-gray-600">{testimonial.position}</p>
+              <p class="text-blue-600">{testimonial.company}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="bg-gradient-to-r from-blue-900 to-blue-700 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        Ready to Start Your Cloud Journey?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+        Let's work together to transform your business with the power of cloud technology.
+      </p>
+      <a 
+        href="/contact"
+        class="inline-block bg-white text-blue-900 px-8 py-4 rounded-lg font-medium hover:bg-blue-50 transition-all transform hover:scale-105"
+      >
+        Contact Us Today
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+  
+  .animate-fade-in-delay-2 {
+    animation: fadeIn 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style> 
