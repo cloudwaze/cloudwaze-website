@@ -1,8 +1,10 @@
 ---
+import { getAssetPath } from '../utils/paths';
+
 const services = [
   {
     title: "Cloud Consulting",
-    description: "End-to-end cloud strategy and implementation services including assessment, planning, and execution of cloud initiatives.",
+    description: "End-to-end cloud strategy and implementation services including assessment, planning, and execution.",
     features: [
       "Cloud Readiness Assessment",
       "Migration Strategy & Planning",
@@ -10,8 +12,8 @@ const services = [
       "Cost Optimization",
       "Performance Tuning"
     ],
-    icon: "consulting",
-    link: "/services/consulting"
+    icon: getAssetPath('/images/icons/consulting.svg'),
+    link: getAssetPath('/services/consulting')
   },
   {
     title: "Cloud Analytics",
@@ -23,8 +25,8 @@ const services = [
       "Real-time Analytics",
       "Data Lake Implementation"
     ],
-    icon: "analytics",
-    link: "/services/analytics"
+    icon: getAssetPath('/images/icons/analytics.svg'),
+    link: getAssetPath('/services/analytics')
   },
   {
     title: "Cloud XaaS",
@@ -36,8 +38,8 @@ const services = [
       "Multi-cloud Management",
       "Service Optimization"
     ],
-    icon: "xaas",
-    link: "/services/xaas"
+    icon: getAssetPath('/images/icons/xaas.svg'),
+    link: getAssetPath('/services/xaas')
   },
   {
     title: "Cloud Security",
@@ -49,8 +51,8 @@ const services = [
       "Threat Detection",
       "Data Protection"
     ],
-    icon: "security",
-    link: "/services/security"
+    icon: getAssetPath('/images/icons/security.svg'),
+    link: getAssetPath('/services/security')
   }
 ];
 ---
@@ -70,7 +72,7 @@ const services = [
           <div class="p-6">
             <div class="w-16 h-16 bg-blue-100 rounded-lg p-3 mb-6">
               <img 
-                src={`/images/icons/${service.icon}.svg`}
+                src={service.icon}
                 alt={service.title}
                 class="w-full h-full text-blue-600"
               />

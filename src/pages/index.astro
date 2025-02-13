@@ -4,25 +4,26 @@ import HeroSection from '../components/HeroSection.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
 import Metrics from '../components/Metrics.astro';
 import Expertise from '../components/Expertise.astro';
+import { getAssetPath } from '../utils/paths';
 
 const solutions = [
   {
-    icon: "/images/icons/consulting.svg",
+    icon: getAssetPath('/images/icons/consulting.svg'),
     title: "Cloud Consulting",
     description: "End-to-end cloud strategy and implementation services including assessment, planning, and execution."
   },
   {
-    icon: "/images/icons/migration.svg",
+    icon: getAssetPath('/images/icons/migration.svg'),
     title: "Cloud Migration",
     description: "Seamlessly migrate your infrastructure to the cloud with our proven methodology and expertise."
   },
   {
-    icon: "/images/icons/xaas.svg",
+    icon: getAssetPath('/images/icons/xaas.svg'),
     title: "Cloud XaaS",
     description: "Comprehensive cloud service models tailored to your specific needs and objectives."
   },
   {
-    icon: "/images/icons/security.svg",
+    icon: getAssetPath('/images/icons/security.svg'),
     title: "Cloud Security",
     description: "Protect your cloud infrastructure with comprehensive security solutions."
   }
@@ -80,22 +81,22 @@ const stats = [
 const certifications = [
   {
     title: "Microsoft Gold Partner",
-    image: "/images/certifications/microsoft-gold.png",
+    image: getAssetPath('/images/certifications/microsoft-gold.png'),
     link: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/Microsoft-Gold-Partner-pct5n9cdu2aqnuuv0b3t0h5nkqqqy7wqtxhbnyxqxc.png"
   },
   {
     title: "Azure Expert",
-    image: "/images/certifications/azure-expert.png",
+    image: getAssetPath('/images/certifications/azure-expert.png'),
     link: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/Azure-Expert-pct5mxmxl4ld8wlkxwvxaaqp4pnxfkk8qy9jqz5uxc.png"
   },
   {
     title: "Office 365",
-    image: "/images/certifications/office365.png",
+    image: getAssetPath('/images/certifications/office365.png'),
     link: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/Office-365-pct5nkw3cnyy2sj4i8bop5cjrzstnviqwxpjpyp2tc.png"
   },
   {
     title: "SharePoint",
-    image: "/images/certifications/sharepoint.png",
+    image: getAssetPath('/images/certifications/sharepoint.png'),
     link: "https://cloudwaze.com/wp-content/uploads/elementor/thumbs/SharePoint-pct5o6gj4zx5hqgdz5jjdtjg5iu4d9eqzwxrnyg6pc.png"
   }
 ];
@@ -116,7 +117,7 @@ const certifications = [
         muted 
         playsinline
       >
-        <source src="/videos/cloud-tech.mp4" type="video/mp4">
+        <source src={getAssetPath('/videos/cloud-tech.mp4')} type="video/mp4">
       </video>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
@@ -129,13 +130,13 @@ const certifications = [
         </p>
         <div class="flex gap-4 animate-fade-in-delay-2">
           <a 
-            href="/contact"
+            href={`${import.meta.env.BASE_URL}/contact`}
             class="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-700 transition-all transform hover:scale-105"
           >
             Get Started
           </a>
           <a 
-            href="/services"
+            href={`${import.meta.env.BASE_URL}/services`}
             class="border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white hover:text-blue-900 transition-all"
           >
             Our Services
@@ -175,11 +176,11 @@ const certifications = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {solutions.map(solution => (
           <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <div class="w-16 h-16 bg-blue-100 rounded-lg mb-6 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+            <div class="w-16 h-16 bg-blue-100 rounded-lg p-3 mb-6">
               <img 
-                src={solution.icon} 
+                src={solution.icon}
                 alt={solution.title}
-                class="w-8 h-8 text-blue-600 group-hover:text-white transition-colors"
+                class="w-full h-full text-blue-600"
               />
             </div>
             <h3 class="text-xl font-semibold mb-3">{solution.title}</h3>

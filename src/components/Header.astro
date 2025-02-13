@@ -23,7 +23,7 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <div class="flex-shrink-0">
-        <a href="/" class="flex items-center">
+        <a href={import.meta.env.BASE_URL || '/'} class="flex items-center">
           <img 
             src="https://cloudwaze.com/wp-content/uploads/2021/09/Cloudwaze-Logo-1-2048x683.png"
             alt="CloudWaze" 
@@ -37,7 +37,7 @@ const currentPath = Astro.url.pathname;
         {navItems.map(item => (
           <div class="relative group">
             <a 
-              href={item.href}
+              href={`${import.meta.env.BASE_URL}${item.href}`}
               class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${
                 currentPath === item.href ? 'text-blue-600' : ''
               }`}
@@ -49,7 +49,7 @@ const currentPath = Astro.url.pathname;
                 <div class="py-1">
                   {item.submenu.map(subItem => (
                     <a
-                      href={subItem.href}
+                      href={`${import.meta.env.BASE_URL}${subItem.href}`}
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {subItem.text}
@@ -80,7 +80,7 @@ const currentPath = Astro.url.pathname;
       {navItems.map(item => (
         <>
           <a
-            href={item.href}
+            href={`${import.meta.env.BASE_URL}${item.href}`}
             class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${
               currentPath === item.href ? 'text-blue-600 bg-gray-50' : ''
             }`}
@@ -91,7 +91,7 @@ const currentPath = Astro.url.pathname;
             <div class="pl-4">
               {item.submenu.map(subItem => (
                 <a
-                  href={subItem.href}
+                  href={`${import.meta.env.BASE_URL}${subItem.href}`}
                   class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50"
                 >
                   {subItem.text}

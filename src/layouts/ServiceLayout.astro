@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import ServiceFeatureCard from '../components/ServiceFeatureCard.astro';
 import ProcessStep from '../components/ProcessStep.astro';
+import { getAssetPath } from '../utils/paths';
 import 'aos/dist/aos.css';
 
 interface Props {
@@ -21,7 +22,7 @@ const { title, description, heroTitle, heroDescription } = Astro.props;
       <div class="absolute inset-0 bg-blue-900/90"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-900/20"></div>
       <!-- Animated Grid Pattern -->
-      <div class="absolute inset-0 animate-grid-flow" style="background-image: linear-gradient(#ffffff0d 1px, transparent 1px), linear-gradient(to right, #ffffff0d 1px, transparent 1px); background-size: 24px 24px;"></div>
+      <div class="absolute inset-0 animate-grid-flow" style={`background-image: linear-gradient(#ffffff0d 1px, transparent 1px), linear-gradient(to right, #ffffff0d 1px, transparent 1px); background-size: 24px 24px;`}></div>
       <!-- Floating Elements -->
       <div class="absolute inset-0 overflow-hidden">
         <div class="floating-elements">
@@ -55,7 +56,9 @@ const { title, description, heroTitle, heroDescription } = Astro.props;
 
   <!-- CTA Section with Parallax -->
   <div class="bg-gray-50 border-t border-gray-100 relative overflow-hidden">
-    <div class="absolute inset-0 parallax-bg"></div>
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50/90"></div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
       <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-[1.02] transition-transform duration-300">
         <div class="max-w-3xl mx-auto text-center">
@@ -67,13 +70,13 @@ const { title, description, heroTitle, heroDescription } = Astro.props;
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="/contact" 
+              href={getAssetPath('/contact')}
               class="inline-block bg-white text-blue-900 px-8 py-4 rounded-lg font-medium hover:bg-blue-50 transition-all transform hover:scale-105"
             >
               Contact Us
             </a>
             <a 
-              href="/case-studies" 
+              href={getAssetPath('/case-studies')}
               class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white/10 transition-all transform hover:scale-105"
             >
               View Case Studies
@@ -115,14 +118,6 @@ const { title, description, heroTitle, heroDescription } = Astro.props;
     50% {
       transform: translate(20px, -20px);
     }
-  }
-
-  /* Parallax Background */
-  .parallax-bg {
-    background-image: url('/images/pattern-bg.svg');
-    background-size: cover;
-    transform: translateZ(-1px) scale(2);
-    z-index: 0;
   }
 
   /* Enhanced Typography */
